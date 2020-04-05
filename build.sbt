@@ -3,7 +3,7 @@ enablePlugins(BuildInfoPlugin)
 enablePlugins(JavaAppPackaging)
 
 name := "serial-monitor"
-version := "0.0.1"
+version := "0.0.2"
 maintainer := "org.bartelborth"
 organization := "org.bartelborth"
 scalaVersion := "2.13.1"
