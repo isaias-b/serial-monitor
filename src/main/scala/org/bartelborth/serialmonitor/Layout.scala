@@ -165,7 +165,7 @@ object PortsList {
           }
       _ <- ui.subscribe(_ => {
             case AddPort(p)     => IO(listModel.addElement(p.systemPortName))
-            case RemovePort(id) => IO.delay(listModel.removeElement(id.name))
+            case RemovePort(id) => IO.delay(listModel.removeElement(id.name)) *> IO.unit
           })
     } yield listView
 }

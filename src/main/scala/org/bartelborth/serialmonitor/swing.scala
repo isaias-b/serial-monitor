@@ -8,10 +8,10 @@ import javax.swing.event.{ChangeListener, ListSelectionEvent, ListSelectionListe
 import scala.language.reflectiveCalls
 
 object swing {
-  type AddActionListeneree        = { def addActionListener(al: ActionListener) }
-  type AddListSelectionListeneree = { def addListSelectionListener(lsl: ListSelectionListener) }
-  type AddChangeListeneree        = { def addChangeListener(cl: ChangeListener) }
-  type AddWindowListeneree        = { def addWindowListener(wl: WindowListener) }
+  type AddActionListeneree        = { def addActionListener(al: ActionListener): Unit }
+  type AddListSelectionListeneree = { def addListSelectionListener(lsl: ListSelectionListener): Unit }
+  type AddChangeListeneree        = { def addChangeListener(cl: ChangeListener): Unit }
+  type AddWindowListeneree        = { def addWindowListener(wl: WindowListener): Unit }
 
   implicit class RichAddWindowListener(c: AddWindowListeneree) {
     def addWindowOpenedListenerIO(action: WindowEvent => IO[Unit]): IO[Unit] =

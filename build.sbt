@@ -34,6 +34,7 @@ mainClass in Compile := Some("org.bartelborth.Main")
 
 scalacOptions += "-Ymacro-annotations"
 scalacOptions += "-Ywarn-value-discard"
+scalacOptions += "-deprecation"
 
 assemblyJarName in assembly := "serial-monitor.jar"
 mappings in Universal := {
@@ -47,7 +48,7 @@ mappings in Universal := {
 
 assemblyMergeStrategy in assembly := {
   case PathList("META-INF", _*) => MergeStrategy.discard
-  case x                        => MergeStrategy.first
+  case _                        => MergeStrategy.first
 }
 
 scriptClasspath := Seq((assemblyJarName in assembly).value)

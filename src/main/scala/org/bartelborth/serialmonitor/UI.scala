@@ -49,7 +49,7 @@ class UI(initial: Model, ref: Ref[IO, UI.State], messages: Queue[IO, Message], u
       currentModel = s.model
       execution    <- IO(update(currentModel)(message)).attempt
       _            <- execution.left.toOption.traverse(t => IO(t.printStackTrace()))
-      nextModel    <- execution.right.toOption.get
+      nextModel    <- execution.toOption.get
       _            <- ref.set(State.model.set(nextModel)(s))
       _            <- contexts.evalOnEdt(views.flatMap(_.apply(nextModel).lift(message)).sequence)
       _            <- run(contexts)
