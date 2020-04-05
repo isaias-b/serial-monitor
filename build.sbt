@@ -2,20 +2,18 @@ enablePlugins(UniversalPlugin)
 enablePlugins(BuildInfoPlugin)
 enablePlugins(JavaAppPackaging)
 
-addCompilerPlugin("org.scalamacros" %% "paradise" % "2.1.1" cross CrossVersion.full)
-
 name := "serial-monitor"
 version := "0.0.1"
 maintainer := "org.bartelborth"
 organization := "org.bartelborth"
-scalaVersion := "2.12.8"
+scalaVersion := "2.13.1"
 
-val catsEffectVersion  = "1.3.1"
-val catsVersion        = "1.6.1"
-val fs2Version         = "1.0.4"
-val jSerialCommVersion = "2.5.1"
-val monocleVersion     = "1.5.1-cats"
-val radianceVersion    = "2.0.1"
+val catsEffectVersion  = "2.1.2"
+val catsVersion        = "2.1.1"
+val fs2Version         = "2.3.0"
+val jSerialCommVersion = "2.6.0"
+val monocleVersion     = "2.0.4"
+val radianceVersion    = "2.5.1"
 
 libraryDependencies ++= Seq(
   "co.fs2"                     %% "fs2-core"          % fs2Version,
@@ -34,7 +32,7 @@ buildInfoPackage := "org.bartelborth"
 
 mainClass in Compile := Some("org.bartelborth.Main")
 
-scalacOptions += "-Ypartial-unification"
+scalacOptions += "-Ymacro-annotations"
 scalacOptions += "-Ywarn-value-discard"
 
 assemblyJarName in assembly := "serial-monitor.jar"
