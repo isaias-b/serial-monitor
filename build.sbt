@@ -30,7 +30,7 @@ libraryDependencies ++= Seq(
 buildInfoKeys := Seq[BuildInfoKey](name, version, scalaVersion, sbtVersion)
 buildInfoPackage := "org.bartelborth"
 
-mainClass in Compile := Some("org.bartelborth.Main")
+mainClass in Compile := Some("org.bartelborth.serialmonitor.Main")
 
 scalacOptions += "-Ymacro-annotations"
 scalacOptions += "-Ywarn-value-discard"
